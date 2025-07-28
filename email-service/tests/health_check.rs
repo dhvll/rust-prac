@@ -17,7 +17,7 @@ async fn health_check_works() {
 fn spawn_app() -> String {
     let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind random port");
     let port  = listener.local_addr().unwrap().port();
-    let server = email_service::run(listener).expect("failed to bind address");
+    let server = email_service::startup::run(listener).expect("failed to bind address");
     let _ = tokio::spawn(server);
     format!("http://127.0.0.1:{}", port)
 }

@@ -1,4 +1,4 @@
-use email_service::run;
+use email_service::startup::run;
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
